@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../reusables/layout'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../reusables/menu'); %>
+    </header>
+
+    <main>
+        <div class="m-5">
+          <form action="connexion" method="post" class="was-validated">
+			  <label>Adresse Mail</label>
+			  <input id="mailConnexion" placeholder="Votre mail"/><br/>
+			  <label>Mot de passe</label>
+			  <input id="mdpConnexion" placeholder="Votre mot de passe"/><br/>
+			  <button type="submit" id="connexion" clas="btn">Connexion</button>
+			  <a href="/">Insription</a>
+			</form>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../reusables/footer'); %>
+    </footer>
+
+</body>
+
+</html>
