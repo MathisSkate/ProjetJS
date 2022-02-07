@@ -15,14 +15,28 @@
         <div class="jumbotron">
             <h1>Espace d'achat</h1>
             <hr>
-            <p>Vous pouvez achter tout ce que vous voulez ...</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Desc</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% prods.forEach(prod => { %>
+                    <tr>
+                        <td><%= prod.nom_produit %></td>
+                        <td><%= prod.descript_produit %></td>
+                    </tr>
+                <% }) %>
+                </tbody>
+            </table>
         </div>
     </main>
 
     <footer>
         <%- include('../reusables/footer'); %>
     </footer>
-
 </body>
 
 </html>
