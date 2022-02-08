@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 //Création d'un Shema de données de l'utilisateur à enregistrer dans MongoDB
-const utilisateurSchema = mongoose.Schema({  
+const utilisateurSchema = mongoose.Schema({
     nom_utilisateur: { type: String, require: true },
     prenom_utilisateur: { type: String, require: true },
     email_utilisateur: { type: String, require: true },

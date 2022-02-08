@@ -1,26 +1,24 @@
-//const Utilisateurs = require('../models/Utilisateurs');
+const Utilisateurs = require('../models/Utilisateurs');
 
-exports.getConnexion = function(req, res, next) {
+exports.getConnexion = (req, res, next) => {
     res.render('connexion');
-}
+};
 
-exports.submitConnexionUser = function(req, res, next) {
-    //Création d'une instance de l'objet Produit
-    const user = new Produits({
-        //Récupération des valeur des champ du formulaire d'enregistrement
-        //avec req.body
-        nom_produit: req.body.nom_produit,
-        prix_produit: req.body.prix_produit,
-        descript_produit: req.body.descript_produit,
-        //Construction du nom de l'image à enregistrer, en utilisant une chaine complexe 
-        url_image: `${req.protocol}://${req.get('host')}/public/images/images_produits/${req.file.filename}`
-    });
+exports.submitConnexionUser = async (req, res, next) => {
+    console.log("--------------------");
+    console.log(req.body.mailConnexion);
+    console.log(req.body.mdpConnexion);
+    console.log("--------------------");
+    const user = await Utilisateurs.collection.find({"email_utilisateur": req.body.mailConnexion, "motdepasse_utilisateur": req.body.mdpConnexion}).toArray();
+    console.log(user);
+    if(user){
+        req.session.nom = user[0].nom_utilisateur;
+        req.session.prenom = user[0].prenom_utilisateur;
+        console.log(req.session);
+        res.redirect("/");
+    }else{
+        res.redirect("/connexion");
+    }
     //Enregistrement du produit
-    produit.save()
-        .then(() => res.status(201).json({
-            message: 'Produit enregistré avec succès ! '
-        }))    
-        .catch(error => res.status(400).json({ error: error.message }));
-
-
+    
 }

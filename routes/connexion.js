@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-let lister = require('../controllers/connexion')
+let connexion = require('../controllers/connexion');
 
 /* GET home page. */
-router.get('/', lister.getConnexion);
+router.get('/', connexion.getConnexion);
 
-router.post('/', enregistrer.submitConnexionUser);
+router.post('/', connexion.submitConnexionUser);
 
 module.exports = router;
