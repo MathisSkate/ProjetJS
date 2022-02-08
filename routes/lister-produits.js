@@ -6,8 +6,10 @@ const Produits = require('../models/Produits');
 /* GET home page. */
 //router.get('/', lister.getLister);
 router.get('/', async (req, res) => {
-    const prods = await Produits.collection.find({}).toArray();
+    const prods = await Produits.collection.find().toArray();
     res.render("lister-produits", {prods});
 });
+
+router.get('/deleteProduit/{nom}', lister.removeProduit);
 
 module.exports = router;
