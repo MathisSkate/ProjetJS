@@ -1,6 +1,6 @@
 const multer = require("multer");
 
-const tableauMIME_TYPE = {  
+const tableauMIME_TYPE = {
     'image/jpg': 'jpg',
     'image/jpeg': 'jpg',
     'image/png': 'png'

@@ -15,14 +15,22 @@
         <div class="jumbotron">
             <h1>Espace d'achat</h1>
             <hr>
-            <p>Vous pouvez achter tout ce que vous voulez ...</p>
+            <div id="produits">
+            <% prods.forEach(prod => { %>
+                <div id="produit">
+                    <img src="<%= prod.url_image%>"/>
+                    <h2><%= prod.nom_produit %></h2>
+                    <h3><%= prod.descript_produit %></h3>
+                    <h3><%= prod.prix_produit%></h3>
+                </div>
+            <% }) %>
+            </div>
         </div>
     </main>
 
     <footer>
         <%- include('../reusables/footer'); %>
     </footer>
-
 </body>
 
 </html>
