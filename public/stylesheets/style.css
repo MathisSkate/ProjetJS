@@ -45,3 +45,36 @@ html {
     border: solid 2px black;
     margin: 10px;
 }
+
+.search-container {
+    max-width: 600px;
+    margin-left: 350px;
+}
+
+input[type="text"] {
+    display: block;
+    width: calc(100% - 24px); 
+    font-size: 18px;
+    font-weight: 600;
+    color: #4ea8de;
+    padding: 10px;
+    border: 2px solid #4ea8de;
+}
+
+input[type=submit] {
+    background-color: #4ea8de;
+    border: none;
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.noMatch {
+    text-align: center;
+}
+.noMatch h3 {
+    color: red;
+}
+
+

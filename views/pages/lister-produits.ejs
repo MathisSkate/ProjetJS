@@ -25,6 +25,21 @@
                 </div>
             <% }) %>
             </div>
+            <br>
+            <div class="noMatch">
+                <% if(noMatch !== null) { %>
+                <h3><%= noMatch %></h3>
+                <% } %>
+            </div>
+            <br>
+            <div class="search-container">
+                <form action="/lister-produits" method="GET" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="Nom de produits" class="form-control">
+                        <input type="submit" value="Recherche" class="btn btn-default">
+                    </div>
+                </form>
+            </div>
         </div>
     </main>
 
