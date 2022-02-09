@@ -1,2 +1,6 @@
 node_modules/
 .env
+.idea
+yarn.lock
+package.json
+public/images

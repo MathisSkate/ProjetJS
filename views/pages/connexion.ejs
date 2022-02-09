@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../reusables/layout'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../reusables/menu'); %>
+    </header>
+
+    <main class="jumbotron">
+        <form action="connexion" method="post">
+			<div class="m-5 text-left container-vente-produit">	
+                <fieldset>
+					<legend>Connexion</legend>
+                    <hr>
+
+					<label class="col-2" for="mailConnexion">Adresse Mail</label>
+					<input class="col-8" name="mailConnexion" id="mailConnexion" placeholder="Votre mail"/>
+					<label class="col-2" for="mdpConnexion">Mot de passe</label>
+					<input class="col-8" name="mdpConnexion" id="mdpConnexion" placeholder="Votre mot de passe"/>
+					<br/>
+					<br/>
+					<button type="submit" id="connexion" class="btn">Connexion</button>
+					<a href="/inscription">Insription</a>
+				</fieldset>
+			</div>
+		</form>
+    </main>
+
+    <footer>
+        <%- include('../reusables/footer'); %>
+    </footer>
+
+</body>
+
+</html>

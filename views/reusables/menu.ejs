@@ -11,4 +11,12 @@
             <a class="nav-link" href="/lister-produits">Produits à vendre </a>
         </li>
     </ul>
+    <span class="navbar-nav">
+        <%if(locals.session.nom) {%>
+            <a class="nav-item nav-link" style="pointer-events: none;"><%= locals.session.nom %> <%= locals.session.prenom %></a>
+            <a class="nav-item nav-link" href="/log-out">Log out</a>
+        <% }else{%>
+            <a class="nav-item nav-link" href="/connexion">Connexion</a>
+        <%}%>
+    </span>
 </nav>

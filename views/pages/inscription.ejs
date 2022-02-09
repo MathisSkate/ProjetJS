@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../reusables/layout'); %>
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('../reusables/menu'); %>
+    </header>
+
+    <main class="jumbotron">
+        <form action="inscription" method="post">
+			<div class="m-5 text-left container-vente-produit">	
+                <fieldset>
+                    <legend>Inscription</legend>
+                    <hr>
+
+                    <label class="col-2" for="nomInscription">Nom</label>
+                    <input class="col-8" name="nomInscription" id="nomInscription" placeholder="Votre nom"/>
+                    <label class="col-2" for="prenomInscription">Prenom</label>
+                    <input class="col-8" name="prenomInscription" id="prenomInscription" placeholder="Votre prenom"/>
+                    <label class="col-2" for="mailInscription">Adresse Mail</label>
+                    <input class="col-8" name="mailInscription" id="mailInscription" placeholder="Votre mail"/>
+                    <label class="col-2" for="mdpInscription">Mot de passe</label>
+                    <input class="col-8" name="mdpInscription" id="mdpInscription" placeholder="Votre mot de passe"/>
+                    <br/>
+                    <br/>
+                    <button type="submit" id="inscription" class="btn">Inscription</button>
+                    <a href="/connexion">Connexion</a>
+                </fieldset>
+            </div>
+		</form>
+    </main>
+
+    <footer>
+        <%- include('../reusables/footer'); %>
+    </footer>
+
+</body>
+
+</html>
