@@ -39,7 +39,9 @@
                         <a><b>Quantité: </b><%= prod.prix_produit%></a>
                     </div>
                     <div class="text-center">
-                        <a href="/enregistrer-produits/delete-produit/<%= prod._id %>">Supprimer le produit</a>
+                        <%if (prod.email_utilisateur == email) {%>
+                            <a href="/enregistrer-produits/delete-produit/<%= prod._id %>">Supprimer le produit</a>
+                        <% } %>
                     </div>
                 </div>
             <% }) %>
