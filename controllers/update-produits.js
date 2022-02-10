@@ -21,14 +21,9 @@ exports.updateProduit = async function (req, res, next) {
     var nom = req.body.nomProd;
     var desc = req.body.descProd;
     var prix = req.body.prixProd;
-    console.log("--------------------");
-    console.log(nom);
-    console.log(desc);
-    console.log(prix);
-    console.log("--------------------");
     var o_id = new mongo.ObjectID(req.params.id);
     const filter = { "_id": o_id, "email_utilisateur": req.session.email };
     const update = { $set: { "nom_produit": nom, "descript_produit": desc, "prix_produit": prix }};
-    const prods = await Produits.collection.findOneAndUpdate(filter, update);
+    await Produits.collection.findOneAndUpdate(filter, update);
     res.redirect('/lister-produits');
 }
