@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../reusables/layout'); %>
+</head>
+
+<body class="container">
+
+<header>
+    <%- include('../reusables/menu'); %>
+</header>
+
+<main class="jumbotron">
+    <form action="/update-produits/updated/<%=page.split("/")[2]%>" method="post">
+        <div class="m-5 text-left container-vente-produit">
+            <fieldset>
+                <legend>Mise à jour du produit</legend>
+                <hr>
+                <label class="col-2" for="nomProd">Nom du produit</label>
+                <input class="col-8" name="nomProd" id="nomProd" placeholder="Nom du produit"/>
+                <label class="col-2" for="descProd">Description du produit</label>
+                <input class="col-8" name="descProd" id="descProd" placeholder="Description du produit"/>
+                <label class="col-2" for="prixProd">Prix du produit</label>
+                <input class="col-8" name="prixProd" id="prixProd" placeholder="Prix du produit"/>
+                <br/>
+                <br/>
+                <button type="submit" id="update" class="btn">Modifier</button>
+            </fieldset>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <%- include('../reusables/footer'); %>
+</footer>
+
+</body>
+
+</html>

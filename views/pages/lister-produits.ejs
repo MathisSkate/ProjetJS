@@ -43,6 +43,11 @@
                             <a href="/update-produits/delete/<%= prod._id %>">Supprimer le produit</a>
                         <% } %>
                     </div>
+                    <div class="text-center">
+                        <%if (prod.email_utilisateur == email) { %>
+                            <a href="/update-produits/update/<%= prod._id %>">Modifier le produit</a>
+                        <% } %>
+                    </div>
                 </div>
             <% }) %>
             </div>
