@@ -15,16 +15,34 @@
         <div class="jumbotron">
             <h1>Espace d'achat</h1>
             <hr>
-            <div id="produits">
+            <div class="search-container">
+                <form action="/lister-produits" method="GET" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="Nom de produits" class="form-control">
+                        <input type="submit" value="Recherche" class="btn btn-default">
+                    </div>
+                </form>
+            </div>
+            <div id="produits" class="d-flex flex-wrap">
             <% prods.forEach(prod => { %>
-                <div id="produit">
-                    <img width="250" height="250" src="<%= prod.url_image%>"/>
-                    <h2><%= prod.nom_produit %></h2>
-                    <h3><%= prod.descript_produit %></h3>
-                    <h3><%= prod.prix_produit%></h3>
-                    <%if (prod.email_utilisateur == email) {%>
-                        <a href="/update-produits/delete/<%= prod._id %>">Supprimer le produit</a>
-                    <% } %>
+                <div class="p-2 m-3" id="produit">
+                    <div class="text-left mb-4">
+                        <img height="200" src="<%= prod.url_image%>"/>
+                        <br/>
+                        <a><b>Nom du produit: </b><%= prod.nom_produit %></a>
+                        <hr/>
+                        <a style="width: 250px; display: block;">
+                            <b>Description du produit: </b><br/>
+                            <%= prod.descript_produit %>
+                        </a>
+                        <br/><br/>
+                        <a><b>Prix: </b><%= prod.prix_produit%> €</a>
+                    </div>
+                    <div class="text-center">
+                        <%if (prod.email_utilisateur == email) {%>
+                            <a href="/update-produits/delete/<%= prod._id %>">Supprimer le produit</a>
+                        <% } %>
+                    </div>
                 </div>
             <% }) %>
             </div>
@@ -35,14 +53,6 @@
                 <% } %>
             </div>
             <br>
-            <div class="search-container">
-                <form action="/lister-produits" method="GET" class="form-inline">
-                    <div class="form-group">
-                        <input type="text" name="search" placeholder="Nom de produits" class="form-control">
-                        <input type="submit" value="Recherche" class="btn btn-default">
-                    </div>
-                </form>
-            </div>
         </div>
     </main>
 

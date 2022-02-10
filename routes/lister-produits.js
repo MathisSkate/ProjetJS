@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         const prods = await Produits.collection.find({nom_produit: regex}).toArray();
         if (prods.length < 1) {
-            noMatch = "Veuillez réessayer! ce produit n'exite pas.";
+            noMatch = "Veuillez réessayer! Ce produit n'exite pas.";
         }
         
         res.render("lister-produits", {prods, noMatch: noMatch});
