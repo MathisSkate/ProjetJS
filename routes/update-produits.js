@@ -10,5 +10,6 @@ router.get('/delete/:id', update.deleteProduit);
 
 router.get('/update/:id', update.getUpdate);
 
-router.get('/updated/id', update.updateProduit)
+router.post('/updated/:id', update.updateProduit);
+
 module.exports = router;

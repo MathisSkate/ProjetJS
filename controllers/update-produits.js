@@ -3,7 +3,7 @@ const Produits = require('../models/Produits');
 const mongo = require('mongodb');
 
 exports.getUpdate= (req, res, next) => {
-    res.render('update-produits');
+    res.render('update-produits', {page: req.url});
 };
 
 exports.deleteProduit = function (req, res, next) {
@@ -18,16 +18,17 @@ exports.deleteProduit = function (req, res, next) {
 }
 
 exports.updateProduit = async function (req, res, next) {
-    var nom = req.body.nom_produit;
-    var prix = req.body.prix_produit;
+    var nom = req.body.nomProd;
+    var desc = req.body.descProd;
+    var prix = req.body.prixProd;
     console.log("--------------------");
     console.log(nom);
+    console.log(desc);
     console.log(prix);
     console.log("--------------------");
     var o_id = new mongo.ObjectID(req.params.id);
-    const prods = await Produits.collection.findOneAndUpdate({
-        "_id": o_id,
-        "email_utilisateur": req.session.email
-    }, {"nom_produit": nom, "prix_produit": prix}).toArray();
-    console.log(prods);
+    const filter = { "_id": o_id, "email_utilisateur": req.session.email };
+    const update = { $set: { "nom_produit": nom, "descript_produit": desc, "prix_produit": prix }};
+    const prods = await Produits.collection.findOneAndUpdate(filter, update);
+    res.redirect('/lister-produits');
 }
