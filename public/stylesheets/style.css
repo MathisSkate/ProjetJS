@@ -1,5 +1,4 @@
 body {
-    padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -28,7 +27,7 @@ html {
     align-items: center;
     justify-content: center;
 }
-
+/*
 #produits {
     text-align: center;
     display: grid;
@@ -36,14 +35,14 @@ html {
     grid-gap: 20px;
     grid-auto-rows: minmax(100px, auto);
 }
-
+*/
 #produit {
     border: solid 2px gray;
 }
 
 #produit img {
     border: solid 2px black;
-    margin: 10px;
+    margin-bottom: 20px;
 }
 
 .search-container {
@@ -54,18 +53,12 @@ html {
 input[type="text"] {
     display: block;
     width: calc(100% - 24px); 
-    font-size: 18px;
-    font-weight: 600;
-    color: #4ea8de;
     padding: 10px;
-    border: 2px solid #4ea8de;
 }
 
 input[type=submit] {
-    background-color: #4ea8de;
     border: none;
     text-decoration: none;
-    color: white;
     margin-left: 10px;
     cursor: pointer;
 }
