@@ -16,6 +16,7 @@ var listerRouter = require('./routes/lister-produits');
 var getConnexion = require('./routes/connexion');
 var logOut = require('./routes/log-out');
 var inscription = require('./routes/inscription');
+var updateProduits = require('./routes/update-produits');
 
 var app = express();
 
@@ -56,6 +57,7 @@ app.use('/lister-produits', listerRouter);
 app.use('/connexion', getConnexion);
 app.use('/log-out', logOut);
 app.use('/inscription', inscription);
+app.use('/update-produits', updateProduits);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

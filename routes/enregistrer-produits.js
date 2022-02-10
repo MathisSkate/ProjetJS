@@ -13,7 +13,4 @@ router.get('/', enregistrer.getEnregistrer);
 //de l'image de chaque produit, puis enregistre le produit avec la méthode submitProductdataToDB 
 router.post('/', multer, enregistrer.submitProductdataToDB);
 
-router.get('/delete-produit/:id', enregistrer.deleteProduit);
-
-
 module.exports = router;

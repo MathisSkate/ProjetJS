@@ -23,7 +23,7 @@
                     <h3><%= prod.descript_produit %></h3>
                     <h3><%= prod.prix_produit%></h3>
                     <%if (prod.email_utilisateur == email) {%>
-                        <a href="/enregistrer-produits/delete-produit/<%= prod._id %>">Supprimer le produit</a>
+                        <a href="/update-produits/delete/<%= prod._id %>">Supprimer le produit</a>
                     <% } %>
                 </div>
             <% }) %>
