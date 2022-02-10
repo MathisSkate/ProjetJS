@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     }
     else {
         const prods = await Produits.collection.find().toArray();
-        res.render("lister-produits", {prods, noMatch: noMatch});
+        res.render("lister-produits", {prods, noMatch: noMatch, email: req.session.email});
         
     }
 });

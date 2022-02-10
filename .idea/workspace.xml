@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c389bb7f-a255-46de-9f58-54754449a279" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/connexion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/enregistrer-produits.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/enregistrer-produits.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Produits.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Produits.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/enregistrer-produits.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/enregistrer-produits.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/lister-produits.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/lister-produits.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/pages/lister-produits.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/lister-produits.ejs" afterDir="false" />
     </list>
@@ -75,7 +71,8 @@
       <workItem from="1644410681696" duration="144000" />
       <workItem from="1644430285255" duration="1000" />
       <workItem from="1644437504290" duration="779000" />
-      <workItem from="1644496327171" duration="3941000" />
+      <workItem from="1644496327171" duration="4116000" />
+      <workItem from="1644513108688" duration="1109000" />
     </task>
     <servers />
   </component>
