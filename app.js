@@ -39,7 +39,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+app.use(session({
+    secret: 'ssshhhhh',
+    resave: true,
+    rolling: true,
+    saveUninitialized: true,
+    cookie: {
+        expires: 120000
+    }
+}));
 //Définition du dossier 'public' comme espace de stockage pour les fichier statiques
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -5,8 +5,10 @@ const mongo = require('mongodb');
 //Création d'une fonction pour appeler la page enregistrer-produit
 exports.getEnregistrer = function(req, res, next) {
     //Rendu de la page enregistrer-produits via la méthode res.render
-    if(req.session.email == null)
-        res.status(400).json({error: 'vous devez être connecter'});
+    if(req.session.email == null){
+        res.send('<script>alert("You need to be authenticated to access this page")</script>'); 
+        res.redirect("/");
+    }
     res.render('enregistrer-produits');
 }
 
@@ -25,8 +27,8 @@ exports.submitProductdataToDB = function(req, res, next) {
     });
     //Enregistrement du produit
     produit.save()
-        .then(() => res.status(201).json({
-            message: 'Produit enregistré avec succès ! '
-        }))
+        .then()
         .catch(error => res.status(400).json({ error: error.message }));
+
+    res.redirect("/lister-produits");
 }

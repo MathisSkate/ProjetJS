@@ -18,7 +18,7 @@
             <div class="search-container">
                 <form action="/lister-produits" method="GET" class="form-inline">
                     <div class="form-group">
-                        <input type="text" name="search" placeholder="Nom de produits" class="form-control">
+                        <input type="text" name="search" placeholder="Nom du produit" class="form-control">
                         <input type="submit" value="Recherche" class="btn btn-default">
                     </div>
                 </form>
@@ -39,7 +39,7 @@
                         <a><b>Prix: </b><%= prod.prix_produit%> €</a>
                     </div>
                     <div class="text-center">
-                        <%if (prod.email_utilisateur == email) {%>
+                        <%if (prod.email_utilisateur == locals.session.email) {%>
                             <a href="/update-produits/delete/<%= prod._id %>">Supprimer le produit</a>
                         <% } %>
                     </div>
