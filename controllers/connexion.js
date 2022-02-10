@@ -14,6 +14,7 @@ exports.submitConnexionUser = async (req, res, next) => {
     if(user){
         req.session.nom = user[0].nom_utilisateur;
         req.session.prenom = user[0].prenom_utilisateur;
+        req.session.email = user[0].email_utilisateur;
         console.log(req.session);
         res.redirect("/");
     }else{

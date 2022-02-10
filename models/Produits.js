@@ -7,7 +7,8 @@ const produitSchema = mongoose.Schema({
     nom_produit: { type: String, require: true },
     prix_produit: { type: Number, require: true },
     descript_produit: { type: String, require: true },
-    url_image: { type: String, require: true }
+    url_image: { type: String, require: true },
+    email_utilisateur: { type: String, require: true }
 })
 
 //Exportation du Schema de données

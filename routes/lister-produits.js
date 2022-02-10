@@ -23,8 +23,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/deleteProduit/{nom}', lister.removeProduit);
-
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
