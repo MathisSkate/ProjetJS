@@ -4,7 +4,6 @@ var router = express.Router();
 
 //Importation du controlleur update-produits
 let update = require('../controllers/update-produits')
-const Produits = require("../models/Produits");
 
 router.get('/delete/:id', update.deleteProduit);
 
