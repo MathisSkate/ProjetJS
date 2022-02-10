@@ -6,7 +6,6 @@ const mongo = require('mongodb');
 exports.getEnregistrer = function(req, res, next) {
     //Rendu de la page enregistrer-produits via la méthode res.render
     if(req.session.email == null){
-        res.send('<script>alert("You need to be authenticated to access this page")</script>'); 
         res.redirect("/");
     }
     res.render('enregistrer-produits');
@@ -28,7 +27,7 @@ exports.submitProductdataToDB = function(req, res, next) {
     //Enregistrement du produit
     produit.save()
         .then()
-        .catch(error => res.status(400).json({ error: error.message }));
+        .catch(res.redirect("/lister-produits"));
 
     res.redirect("/lister-produits");
 }

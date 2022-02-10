@@ -12,17 +12,15 @@ exports.submitInscriptionUser = async (req, res, next) => {
         res.redirect("/inscription");
     }else{
         user = new Utilisateurs({
-            //Récupération des valeur des champ du formulaire d'enregistrement
-            //avec req.body
             nom_utilisateur: req.body.nomInscription,
             prenom_utilisateur: req.body.prenomInscription,
             email_utilisateur: req.body.mailInscription,
             motdepasse_utilisateur: req.body.mdpInscription
         });
-        //Enregistrement du produit
+        //Enregistrement de l'utilisateur
         user.save()
             .then()
-            .catch(error => res.status(400).json({ error: error.message }));
+            .catch(res.redirect("/inscription"));
 
         req.session.nom = user.nom_utilisateur;
         req.session.prenom = user.prenom_utilisateur;

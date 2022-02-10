@@ -13,7 +13,7 @@ exports.deleteProduit = function (req, res, next) {
         res.redirect('/')
     Produits.collection.findOneAndDelete({"_id": o_id, "email_utilisateur": req.session.email})
         .then()
-        .catch(error => res.status(400).json({error: error.message}));
+        .catch(res.redirect("/lister-produits"));
     res.redirect('/lister-produits');
 }
 
@@ -29,6 +29,6 @@ exports.updateProduit = async function (req, res, next) {
     var o_id = new mongo.ObjectID(req.params.id);
     const filter = { "_id": o_id, "email_utilisateur": req.session.email };
     const update = { $set: { "nom_produit": nom, "descript_produit": desc, "prix_produit": prix }};
-    const prods = await Produits.collection.findOneAndUpdate(filter, update);
+    const prods = await Produits.collection.findOneAndUpdate(filter, update).catch(res.redirect('/lister-produits'));
     res.redirect('/lister-produits');
 }
