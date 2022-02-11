@@ -27,15 +27,7 @@ html {
     align-items: center;
     justify-content: center;
 }
-/*
-#produits {
-    text-align: center;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr) fit-content(0px) 1fr;
-    grid-gap: 20px;
-    grid-auto-rows: minmax(100px, auto);
-}
-*/
+
 #produit {
     border: solid 2px gray;
 }

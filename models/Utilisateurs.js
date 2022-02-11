@@ -11,14 +11,6 @@ const utilisateurSchema = mongoose.Schema({
     motdepasse_utilisateur: { type: String, require: true }
 })
 
-// utilisateurSchema.pre('save', async function (next) {
-//   if (!this.isModified('motdepasse_utilisateur')) next()
-//
-//   this.motdepasse_utilisateur = await bcrypt.hash(this.motdepasse_utilisateur, 10)
-//   next()
-// })
-
-
 utilisateurSchema.pre('save', async function (next) {
   try {
     /* 
@@ -35,9 +27,8 @@ utilisateurSchema.pre('save', async function (next) {
   }
 })
 
-utilisateurSchema.methods.isValidPassword = async function (motdepasse_utilisateur) {
+utilisateurSchema.methods.isValidPassword = async function (motdepasse_utilisateur, hashedPassword) {
   try {
-    console.log(bcrypt.compare(motdepasse_utilisateur, hashedPassword))
     return await bcrypt.compare(motdepasse_utilisateur, hashedPassword)
   } catch (error) {
     throw error
