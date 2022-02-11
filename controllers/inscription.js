@@ -20,7 +20,7 @@ exports.submitInscriptionUser = async (req, res, next) => {
         //Enregistrement de l'utilisateur
         user.save()
             .then()
-            .catch(res.redirect("/inscription"));
+            .catch(error => res.status(400).json({ error: error.message }));
 
         req.session.nom = user.nom_utilisateur;
         req.session.prenom = user.prenom_utilisateur;
