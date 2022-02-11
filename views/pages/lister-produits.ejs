@@ -44,7 +44,7 @@
                         <% } %>
                     </div>
                     <div class="text-center">
-                        <%if (prod.email_utilisateur == email) { %>
+                        <%if (prod.email_utilisateur == locals.session.email) { %>
                             <a href="/update-produits/update/<%= prod._id %>">Modifier le produit</a>
                         <% } %>
                     </div>

@@ -13,7 +13,10 @@ exports.deleteProduit = function (req, res, next) {
         res.redirect('/')
     Produits.collection.findOneAndDelete({"_id": o_id, "email_utilisateur": req.session.email})
         .then()
-        .catch(res.redirect("/lister-produits"));
+        // .catch(res.redirect("/lister-produits"));
+        .catch(error => res.status(400).json({ error: error.message }));
+
+
     res.redirect('/lister-produits');
 }
 
