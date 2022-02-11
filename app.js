@@ -10,7 +10,6 @@ require('dotenv').config();
 
 //Définition des routes
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var enregistrerRouter = require('./routes/enregistrer-produits');
 var listerRouter = require('./routes/lister-produits');
 var getConnexion = require('./routes/connexion');
@@ -59,7 +58,6 @@ app.use(function(req, res, next){
 
 //Utilisation de chaque route pour une page spécifique 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/enregistrer-produits', enregistrerRouter);
 app.use('/lister-produits', listerRouter);
 app.use('/connexion', getConnexion);
