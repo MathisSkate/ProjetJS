@@ -11,12 +11,38 @@ const utilisateurSchema = mongoose.Schema({
     motdepasse_utilisateur: { type: String, require: true }
 })
 
-utilisateurSchema.pre('save', async function (next) {
-  if (!this.isModified('motdepasse_utilisateur')) next()
+// utilisateurSchema.pre('save', async function (next) {
+//   if (!this.isModified('motdepasse_utilisateur')) next()
+//
+//   this.motdepasse_utilisateur = await bcrypt.hash(this.motdepasse_utilisateur, 10)
+//   next()
+// })
 
-  this.motdepasse_utilisateur = await bcrypt.hash(this.motdepasse_utilisateur, 10)
-  next()
+
+utilisateurSchema.pre('save', async function (next) {
+  try {
+    /* 
+    Here first checking if the document is new by using a helper of mongoose .isNew, therefore, this.isNew is true if document is new else false, and we only want to hash the password if its a new document, else  it will again hash the password if you save the document again by making some changes in other fields incase your document contains other fields.
+    */
+    if (this.isNew) {
+      const salt = await bcrypt.genSalt(10)
+      const hashedPassword = await bcrypt.hash(this.motdepasse_utilisateur, salt)
+      this.motdepasse_utilisateur = hashedPassword
+    }
+    next();
+  } catch (error) {
+    next(error)
+  }
 })
+
+utilisateurSchema.methods.isValidPassword = async function (motdepasse_utilisateur) {
+  try {
+    console.log(bcrypt.compare(motdepasse_utilisateur, hashedPassword))
+    return await bcrypt.compare(motdepasse_utilisateur, hashedPassword)
+  } catch (error) {
+    throw error
+  }
+}
 
 
 //Exportation du Schema de données
