@@ -24,6 +24,7 @@ exports.submitInscriptionUser = async (req, res, next) => {
 
         req.session.nom = user.nom_utilisateur;
         req.session.prenom = user.prenom_utilisateur;
+        req.session.email = user.email_utilisateur;
         res.redirect("/");
     }
     
